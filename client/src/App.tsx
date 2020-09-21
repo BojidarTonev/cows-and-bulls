@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { observer } from 'mobx-react';
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import { appContext, ApplicationStore } from './store/appStore';
 import { Scoreboard } from './components/scoreboard/scoreboard';
 import { Navigation } from './components/navigation/navigation';
 import { MainPage } from './components/main-page/main-page';
 import { Register } from './components/register/register';
+import { Footer } from './components/footer/footer';
 import { Login } from './components/login/login';
 import { Game } from './components/game/game';
 import './assets/main.scss'
 import './App.scss';
-import { Footer } from './components/footer/footer';
 
-function App() {
+export const App = observer(() => {
+  const store: ApplicationStore = useContext(appContext)
+
   return (
-    <div className="App">
-      <Router>
+    <Router>
+      <div className="App">
         <Navigation />
         <Switch>
           <div className="main">
@@ -25,9 +29,8 @@ function App() {
           </div>
         </Switch>
         <Footer />
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
-}
+})
 
-export default App;

@@ -1,6 +1,13 @@
 import React from 'react'
 import './scoreboard.scss'
 
+export interface IScoreboardData {
+    place: number;
+    username: string;
+    winCount: number;
+    summedAttempts: number;
+}
+
 export const Scoreboard = () => {
     return (
         <div className="scoreboard-wrapper">
