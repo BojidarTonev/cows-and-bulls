@@ -1,0 +1,33 @@
+@import "../../assets/mixins.scss";
+
+.main-page-wrapper {
+  @include flex(center, center, "", row);
+  .game-rules {
+    @include flex(center, center, left, column);
+    h1 {
+      color: white;
+      background: rgba(169, 207, 64, 0.7);
+      margin-bottom: 1em;
+      padding: 0 1em;
+    }
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 1em;
+    width: 50em !important;
+    padding: 1em 5em;
+    span {
+      background: rgba(209, 25, 28, 1);
+      padding: 0 1em;
+    }
+    li {
+      color: white;
+      background: rgb(104, 128, 40);
+      margin-bottom: .5em;
+    }
+    button {
+      float: right;
+      margin: 3em 0;
+
+      background: rgba(169, 207, 64, 1);
+    }
+  }
+}

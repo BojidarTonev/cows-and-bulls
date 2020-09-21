@@ -1,0 +1,40 @@
+@import "../assets/mixins.scss";
+
+button {
+  cursor: pointer;
+  color: black !important;
+  padding: 1.2em 3em;
+  font-family: "Ranchers", cursive;
+  color: white;
+  background: rgba(169, 207, 64, 1);
+  border: 1px solid black;
+  border-radius: 0.5em;
+
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+    background: rgb(219, 255, 113) !important;
+    color: black;
+  }
+}
+
+.label {
+  @include flex(center, flex-start, "", column);
+  width: 65%;
+  margin: 0.3em 0;
+}
+.input {
+  cursor: pointer;
+  //width: 100%;
+  border: 1px solid black;
+  border-radius: 0.2em;
+  padding: 0.2em 1em;
+  background: rgb(220, 252, 132);
+
+  transition: all 0.2s ease-in-out;
+  &:focus {
+    color: black;
+    transform: scale(1.1);
+    background: rgb(184, 211, 110);
+  }
+}

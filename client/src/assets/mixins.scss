@@ -1,0 +1,15 @@
+@mixin flex($horizontal, $vertical, $text, $direction) {
+  display: flex;
+  @if $horizontal != "" {
+    justify-content: $horizontal;
+  }
+  @if $vertical != "" {
+    align-items: $vertical;
+  }
+  @if $text != "" {
+    text-align: $text;
+  }
+  @if $direction != "" {
+    flex-direction: $direction;
+  }
+}

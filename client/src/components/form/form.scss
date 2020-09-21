@@ -1,0 +1,10 @@
+@import "../../assets/mixins.scss";
+
+.form-wrapper {
+  @include flex(center, center, center, column);
+  width: 25em;
+
+  button {
+    margin: 2em 0 0 0;
+  }
+}

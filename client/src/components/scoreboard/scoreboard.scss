@@ -1,0 +1,31 @@
+@import "../../assets/mixins.scss";
+
+.scoreboard-wrapper {
+  .scoreboard {
+    overflow: auto;
+    max-height: 30em;
+  }
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 0.5em;
+  padding: 1em 3em;
+  @include flex(center, center, center, column);
+  h1 {
+    margin-bottom: 0.7em;
+  }
+  table {
+    width: 100%;
+    thead {
+      color: white;
+      td {
+        padding: 0.2em 1em !important;
+        background: rgba(121, 148, 46, 0.9);
+        width: 10em;
+      }
+    }
+    tbody {
+      td {
+        padding: 0.5em 0;
+      }
+    }
+  }
+}

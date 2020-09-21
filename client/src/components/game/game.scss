@@ -1,0 +1,47 @@
+@import "../../assets/mixins.scss";
+
+.game-wrapper {
+  @include flex("", "", left, column);
+  height: 37em;
+  width: 50em;
+  border-radius: 0.5em;
+  padding: 2em 5em;
+  background: rgba(0, 0, 0, 0.8);
+
+  .digits-input {
+    @include flex(space-around, center, center, row);
+    width: 100%;
+    margin: 1.5em 0;
+
+    .radio-input {
+      border-right: 3px solid rgba(121, 148, 46, 1);
+      padding-right: 1em;
+      height: 1em;
+      input {
+        cursor: pointer;
+        margin-right: 0.2em;
+      }
+    }
+  }
+  .input-and-btns {
+    @include flex(flex-start, center, center, row);
+    button {
+      @include flex("", center, "", "");
+      height: 3.2em;
+      margin-left: 4em;
+    }
+    input {
+      width: 35%;
+    }
+  }
+  .result-section {
+    overflow: auto;
+    margin: 3em 0;
+    height: 20em;
+    width: 100%;
+    border-radius: 0.5em;
+    color: black;
+    padding: 1em 1.5em;
+    background: rgba(240, 240, 240, 1);
+  }
+}

@@ -1,0 +1,13 @@
+body {
+  color: rgb(196, 196, 196);
+}
+li {
+  list-style-type: none;
+}
+a {
+  color: white;
+  text-decoration: none;
+  &:visited {
+    color: white;
+  }
+}
