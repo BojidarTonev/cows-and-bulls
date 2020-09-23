@@ -1,7 +1,5 @@
-using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using CowsAndBullsAPI.Models;
 
 namespace CowsAndBullsAPI.Services.Contracts
 {
@@ -9,8 +7,8 @@ namespace CowsAndBullsAPI.Services.Contracts
     {
         Task<bool> RegisterUser(string username, string password, string rePassword);
 
-        IQueryable<User> All();
+        object LoginUser(string username, string password);
 
-        IQueryable<User> Scoreboard();
+        IEnumerable<IScoreboardResult> Scoreboard();
     }
 }

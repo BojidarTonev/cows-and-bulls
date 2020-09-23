@@ -1,11 +1,15 @@
 @import "../../assets/mixins.scss";
 
 .login-wrapper {
+  @include flex(center, center, center, column);
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 0.5em;
+  padding: 3em 1em;
+  input {
+    width: 100%;
+  }
+  .form-wrapper {
     @include flex(center, center, center, column);
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: .5em;
-    padding: 3em 1em;
-    input {
-        width: 100%;
-    };
+    width: 25em;
+  }
 }

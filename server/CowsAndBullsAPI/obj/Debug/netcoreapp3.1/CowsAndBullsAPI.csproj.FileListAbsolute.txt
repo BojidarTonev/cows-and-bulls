@@ -124,3 +124,6 @@ E:\projects\bulls-and-cows\server\CowsAndBullsAPI\obj\Debug\netcoreapp3.1\static
 E:\projects\bulls-and-cows\server\CowsAndBullsAPI\obj\Debug\netcoreapp3.1\CowsAndBullsAPI.dll
 E:\projects\bulls-and-cows\server\CowsAndBullsAPI\obj\Debug\netcoreapp3.1\CowsAndBullsAPI.pdb
 E:\projects\bulls-and-cows\server\CowsAndBullsAPI\obj\Debug\netcoreapp3.1\CowsAndBullsAPI.genruntimeconfig.cache
+E:\projects\bulls-and-cows\server\CowsAndBullsAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+E:\projects\bulls-and-cows\server\CowsAndBullsAPI\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+E:\projects\bulls-and-cows\server\CowsAndBullsAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

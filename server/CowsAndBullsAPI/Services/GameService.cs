@@ -13,10 +13,6 @@ namespace CowsAndBullsAPI.Services
             this._gameRepository = gameRepository;
             this._userRepository = userRepository;
         }
-        public Game[] GetUserGames(string userId)
-        {
-            throw new System.NotImplementedException();
-        }
 
         public async Task<bool> RegisterGame(string userId, bool hasWon, int movesCount)
         {
@@ -28,6 +24,8 @@ namespace CowsAndBullsAPI.Services
             };
 
             await this._gameRepository.AddAsync(game);
+            await this._gameRepository.SaveChangesAsync();
+
             return true;
         }
     }

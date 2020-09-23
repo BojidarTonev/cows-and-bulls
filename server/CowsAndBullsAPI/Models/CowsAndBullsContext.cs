@@ -13,6 +13,19 @@ namespace CowsAndBullsAPI.Models
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            builder.Entity<User>()
+            .Property(p => p.Id)
+            .ValueGeneratedOnAdd();
+
+            builder.Entity<Game>()
+            .Property(p => p.Id)
+            .ValueGeneratedOnAdd();
+        }
+
         public DbSet<User> Users { get; set; }
         public DbSet<Game> Games { get; set; }
     }

@@ -1,19 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using CowsAndBullsAPI.Models;
 using CowsAndBullsAPI.Services;
 using CowsAndBullsAPI.Services.Contracts;
+using CowsAndBullsAPI.Repository.Contracts;
+using CowsAndBullsAPI.Repository;
 
 namespace CowsAndBullsAPI
 {
@@ -43,8 +38,10 @@ namespace CowsAndBullsAPI
                                                   .AllowAnyMethod(); ;
                                   });
             });
-            //services.AddTransient<IGameService, GameService>();
-            //services.AddTransient<IUserService, UserService>();
+            services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
+            services.AddTransient<IGameService, GameService>();
+            services.AddTransient<IUsersService, UserService>();
+            services.AddControllers().AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,7 +54,7 @@ namespace CowsAndBullsAPI
                 using (var serviceScrope = app.ApplicationServices.CreateScope())
                 {
                     var context = serviceScrope.ServiceProvider.GetRequiredService<CowsAndBullsContext>();
-                    //context.Database.Migrate();
+                    context.Database.Migrate();
                 }
             }
 
