@@ -3983,7 +3983,7 @@
       ]
     },
     "System.Diagnostics.TraceSource/4.3.0": {
-      "sha512": "PXWAEqWXamctxvdYSlHY+HG0e++cVkg0FwiqtiOZ4Ziy31GD9uab2QAgkuDKUARcCdVq3DfruvdMnPfalEJbNw==",
+      "sha512": "VnYp1NxGx8Ww731y2LJ1vpfb/DKVNKEZ8Jsh5SgQTZREL/YpWRArgh9pI8CDLmgHspZmLL697CaLvH85qQpRiw==",
       "type": "package",
       "path": "system.diagnostics.tracesource/4.3.0",
       "files": [
@@ -7307,36 +7307,30 @@
     ".NETCoreApp,Version=v3.1": [
       "Microsoft.EntityFrameworkCore.Design >= 3.1.8",
       "Microsoft.EntityFrameworkCore.InMemory >= 3.1.8",
-      "Microsoft.EntityFrameworkCore.Proxies >= *",
+      "Microsoft.EntityFrameworkCore.Proxies >= 3.1.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.8",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.8"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bojidar\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\github projects\\interview-task-softuni\\server\\CowsAndBullsAPI\\CowsAndBullsAPI.csproj",
+      "projectUniqueName": "E:\\projects\\bulls-and-cows\\server\\CowsAndBullsAPI\\CowsAndBullsAPI.csproj",
       "projectName": "CowsAndBullsAPI",
-      "projectPath": "D:\\github projects\\interview-task-softuni\\server\\CowsAndBullsAPI\\CowsAndBullsAPI.csproj",
-      "packagesPath": "C:\\Users\\Bojidar\\.nuget\\packages\\",
-      "outputPath": "D:\\github projects\\interview-task-softuni\\server\\CowsAndBullsAPI\\obj\\",
+      "projectPath": "E:\\projects\\bulls-and-cows\\server\\CowsAndBullsAPI\\CowsAndBullsAPI.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "E:\\projects\\bulls-and-cows\\server\\CowsAndBullsAPI\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Bojidar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -7365,7 +7359,7 @@
           },
           "Microsoft.EntityFrameworkCore.Proxies": {
             "target": "Package",
-            "version": "[*, )"
+            "version": "[3.1.8, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",

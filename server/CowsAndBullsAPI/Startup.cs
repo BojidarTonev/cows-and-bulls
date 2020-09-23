@@ -12,11 +12,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using CowsAndBullsAPI.Models;
+using CowsAndBullsAPI.Services;
+using CowsAndBullsAPI.Services.Contracts;
 
 namespace CowsAndBullsAPI
 {
     public class Startup
     {
+        readonly string MyAllowSpecificOrigins = "http://localhost:3000";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,6 +34,17 @@ namespace CowsAndBullsAPI
             services.AddDbContext<CowsAndBullsContext>(opt =>
                 opt.UseLazyLoadingProxies()
                 .UseSqlServer(Configuration.GetConnectionString("CowsAndBullsDataBase")));
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("http://localhost:3000").AllowAnyHeader()
+                                                  .AllowAnyMethod(); ;
+                                  });
+            });
+            //services.AddTransient<IGameService, GameService>();
+            //services.AddTransient<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,7 +54,7 @@ namespace CowsAndBullsAPI
             {
                 app.UseDeveloperExceptionPage();
 
-                using(var serviceScrope = app.ApplicationServices.CreateScope())
+                using (var serviceScrope = app.ApplicationServices.CreateScope())
                 {
                     var context = serviceScrope.ServiceProvider.GetRequiredService<CowsAndBullsContext>();
                     //context.Database.Migrate();
@@ -52,6 +66,8 @@ namespace CowsAndBullsAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(MyAllowSpecificOrigins);
 
             app.UseEndpoints(endpoints =>
             {

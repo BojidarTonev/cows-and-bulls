@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { observer } from 'mobx-react';
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import { appContext, ApplicationStore } from './store/appStore';
@@ -9,12 +9,17 @@ import { Register } from './components/register/register';
 import { Footer } from './components/footer/footer';
 import { Login } from './components/login/login';
 import { Game } from './components/game/game';
+import axios from 'axios';
 import './assets/main.scss'
 import './App.scss';
 
 export const App = observer(() => {
-  const store: ApplicationStore = useContext(appContext)
+  const store: ApplicationStore = useContext(appContext);
 
+
+  useEffect(() => {
+    axios.get('https://localhost:5000').then((res) => console.log('res -> ', res))
+  }, [])
   return (
     <Router>
       <div className="App">
