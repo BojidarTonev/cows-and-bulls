@@ -17,16 +17,21 @@ namespace CowsAndBullsAPI.Services
             this._userRepository = userRepository;
         }
 
-        public async Task<bool> RegisterUser(string username, string password, string rePassword)
+        public async Task<IAuthResult> RegisterUser(string username, string password, string rePassword)
         {
+            var result = new AuthResult("register", null);
             if (password != rePassword)
             {
-                return false;
+                result.isSuccesful = false;
+                result.errorMessage = "Passwords doesn't match!";
+                return result;
             }
             var user = this._userRepository.All().Any(u => u.Username == username);
             if (user)
             {
-                return false;
+                result.isSuccesful = false;
+                result.errorMessage = "Username is taken!";
+                return result;
             }
             var userToRegister = new User()
             {
@@ -36,17 +41,25 @@ namespace CowsAndBullsAPI.Services
             await this._userRepository.AddAsync(userToRegister);
             await this._userRepository.SaveChangesAsync();
 
-            return true;
+            result.user = userToRegister;
+            result.isSuccesful = true;
+
+            return result;
         }
 
-        public object LoginUser(string username, string password)
+        public IAuthResult LoginUser(string username, string password)
         {
-            var user = this._userRepository.All().Any(u => u.Username == username && u.Password == password);
-            if (!user)
+            var result = new AuthResult("login", null);
+            var user = this._userRepository.All().FirstOrDefault(u => u.Username == username && u.Password == password);
+            if (user == null)
             {
-                return null;
+                result.isSuccesful = false;
+                result.errorMessage = "Wrong credentials!";
+                return result;
             }
-            return user;
+            result.isSuccesful = true;
+            result.user = user;
+            return result;
         }
 
         public IEnumerable<IScoreboardResult> Scoreboard()
@@ -85,6 +98,19 @@ namespace CowsAndBullsAPI.Services
             this.username = username;
             this.winCount = wins;
             this.summedAttempts = attempts;
+        }
+    }
+    public class AuthResult : IAuthResult
+    {
+        public string operation { get; set; }
+        public User user { get; set; }
+        public bool isSuccesful { get; set; }
+        public string errorMessage { get; set; }
+
+        public AuthResult(string operationParam, User userParam)
+        {
+            this.operation = operationParam;
+            this.user = userParam;
         }
     }
 }

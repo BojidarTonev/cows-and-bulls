@@ -14,7 +14,7 @@ namespace CowsAndBullsAPI.Services
             this._userRepository = userRepository;
         }
 
-        public async Task<bool> RegisterGame(string userId, bool hasWon, int movesCount)
+        public async Task<bool> RegisterGame(string userId, int movesCount, bool hasWon)
         {
             var game = new Game()
             {

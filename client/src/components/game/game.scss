@@ -1,12 +1,12 @@
 @import "../../assets/mixins.scss";
 
 .game-wrapper {
-  @include flex("", "", left, column);
-  height: 37em;
+  @include flex(center, "", left, column);
   width: 50em;
   border-radius: 0.5em;
   padding: 2em 5em;
   background: rgba(0, 0, 0, 0.8);
+  text-align: center;
 
   .digits-input {
     @include flex(space-around, center, center, row);
@@ -31,10 +31,17 @@
       margin-left: 4em;
     }
     input {
-      width: 35%;
+      width: 40%;
+      &:disabled {
+        background: gray;
+        &::placeholder {
+          color: black;
+        }
+      }
     }
   }
   .result-section {
+    text-align: left;
     overflow: auto;
     margin: 3em 0;
     height: 20em;

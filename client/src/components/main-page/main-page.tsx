@@ -33,7 +33,7 @@ export const MainPage = () => {
                     </ul>
                     <span>In order to play, you must be logged in!</span>
                 </div>
-                <button onClick={() => history.push('/')}>I UNDERSTAND</button>
+                <button onClick={() => history.push('/game')}>I UNDERSTAND</button>
             </div>
         </div>
     )

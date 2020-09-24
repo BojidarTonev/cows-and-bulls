@@ -4,6 +4,6 @@ namespace CowsAndBullsAPI.Services.Contracts
 {
     public interface IGameService
     {
-        Task<bool> RegisterGame(string userId, bool hasWon, int movesCount);
+        Task<bool> RegisterGame(string userId, int movesCount, bool hasWon);
     }
 }

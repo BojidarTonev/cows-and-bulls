@@ -1,8 +1,14 @@
 import axios from 'axios'
-import React from 'react'
+import { observer } from 'mobx-react'
+import React, { useContext } from 'react'
+import { useHistory } from 'react-router-dom'
+import { appContext, ApplicationStore } from '../../store/appStore'
 import './register.scss'
 
-export const Register = () => {
+export const Register = observer(() => {
+    const history = useHistory();
+    const store: ApplicationStore = useContext(appContext);
+
     const registerUser = (e: any) => {
         e.preventDefault();
         const userNameElement = document.getElementsByName('username')[0] as any;
@@ -14,11 +20,20 @@ export const Register = () => {
                 password: passwordElement.value,
                 rePassword: rePasswordElement.value
             }
-        }).then((res) => console.log('res -> ', res))
+        }).then((res) => {
+            if (res.data.result.isSuccesful) {
+                store.setError("");
+                store.user = res.data.result.user;
+                history.push("/");
+            } else {
+                store.setError(res.data.result.errorMessage);
+            }
+        })
     }
     return (
         <div className="register-wrapper">
             <form className="form-wrapper" method="POST">
+                <div style={{ color: 'red' }}>{store.error}</div>
                 <label htmlFor="username" className="label">
                     Username
                     <input name="username" type="text" placeholder="Username.." className="input" />
@@ -35,5 +50,5 @@ export const Register = () => {
             </form>
         </div>
     )
-}
+})
 

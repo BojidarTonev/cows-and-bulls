@@ -16,11 +16,12 @@ namespace CowsAndBullsAPI.Controllers
             this._gameService = gameService;
         }
 
-        [HttpGet]
-        [Route("register-game")]
-        public ActionResult RegisterGame()
+        [HttpPost]
+        [Route("registergame")]
+        public ActionResult RegisterGame(string userId, int moves, bool hasWon)
         {
-            return Ok();
+            var res = this._gameService.RegisterGame(userId, moves, hasWon);
+            return Ok(res);
         }
 
         [HttpGet]

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { observer } from 'mobx-react';
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
 import { appContext, ApplicationStore } from './store/appStore';

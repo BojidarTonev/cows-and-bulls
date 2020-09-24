@@ -1,8 +1,11 @@
+
+using System.Collections.Generic;
+
 public class User
 {
     public string Id { get; set; }
     public string Username { get; set; }
     public string Password { get; set; }
 
-    public virtual Game[] Games { get; set; }
+    public virtual ICollection<Game> Games { get; set; }
 }

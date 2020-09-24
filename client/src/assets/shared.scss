@@ -16,6 +16,13 @@ button {
     background: rgb(219, 255, 113) !important;
     color: black;
   }
+  &:disabled {
+    background: gray;
+    &:hover {
+      transform: scale(1);
+      background: gray !important;
+    }
+  }
 }
 
 .label {
