@@ -3,6 +3,7 @@ import { appContext, ApplicationStore } from '../../store/appStore';
 import { observer } from 'mobx-react'
 import axios from 'axios';
 import './game.scss'
+import { checkForSameValues } from '../../utils';
 
 export const Game = observer(() => {
     const [attempts, setAttempts] = useState(1)
@@ -44,9 +45,7 @@ export const Game = observer(() => {
         if (isNaN(answerElement.value)) {
             store.setError('The input must be a number!')
         }
-        const hasSameValues = answerElement.value.split("").some(function (v: any, i: any, a: any) {
-            return a.lastIndexOf(v) != i;
-        })
+        const hasSameValues = checkForSameValues(answerElement.value)
         if (hasSameValues) {
             store.setError("Enter only different digits!")
         }

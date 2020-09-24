@@ -2,6 +2,7 @@ import { observable, action } from "mobx";
 import { createContext } from "react";
 import { create, persist } from "mobx-persist";
 import { IScoreboardData } from "../components/scoreboard/scoreboard";
+import { checkForSameValues } from "../utils";
 
 const hydrate = create({
   storage: localStorage,
@@ -62,12 +63,7 @@ export class ApplicationStore {
     const number = Math.floor(
       Number(firstNumber) + Math.random() * Number(secondNumber)
     );
-    const hasSameDigits = number
-      .toString()
-      .split("")
-      .some(function (v: any, i: any, a: any) {
-        return a.lastIndexOf(v) != i;
-      });
+    const hasSameDigits = checkForSameValues(number.toString());
     if (hasSameDigits) {
       this.setRandomGameNumber(digits);
     } else {
