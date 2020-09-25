@@ -1,20 +1,18 @@
 import React, { useContext, useState } from 'react'
 import { appContext, ApplicationStore } from '../../store/appStore';
+import { checkForSameValues } from '../../utils';
 import { observer } from 'mobx-react'
 import axios from 'axios';
 import './game.scss'
-import { checkForSameValues } from '../../utils';
 
 export const Game = observer(() => {
     const [attempts, setAttempts] = useState(1)
-    const [hasWon, setHasWon] = useState(false);
 
     const store: ApplicationStore = useContext(appContext);
 
     const startGame = (e: any) => {
         e.preventDefault();
 
-        setHasWon(false);
         setAttempts(1);
 
         let digits = null;
@@ -35,6 +33,7 @@ export const Game = observer(() => {
         store.isGameStarted = true;
         store.gameResopnses.push(`I am thinking of a ${digits}-digits number! =)`)
         store.setRandomGameNumber(digits);
+
         console.log('number -> ', store.gameNumber)
     }
     const submitAnswer = (e: any) => {
@@ -62,8 +61,7 @@ export const Game = observer(() => {
         let cowsCount = 0;
         if (inputNumber == store.gameNumber) {
             store.gameResopnses.push(`You guessed the number with ${attempts} attempts. Congratulations!`)
-            setHasWon(true);
-            finishGame();
+            finishGame(true);
             return;
         }
 
@@ -77,11 +75,12 @@ export const Game = observer(() => {
         }
         store.gameResopnses.push(`${bullsCount} bulls and ${cowsCount} cows.`)
     }
-    const finishGame = (e?: any) => {
+    const finishGame = (hasWon: boolean, e?: any) => {
         e && e.preventDefault();
         if (!hasWon) {
             store.gameResopnses.push(`You give up? Looser. Attempts: ${attempts}`)
         }
+        console.log('has won -> ', hasWon)
         axios.post("https://localhost:5001/api/registergame", null, {
             params: {
                 userId: store.user.id,
@@ -121,7 +120,7 @@ export const Game = observer(() => {
                     <div className="input-and-btns">
                         <input type="text" placeholder="Your try.." className="input" id="input-answer" disabled={!store.isGameStarted} />
                         <button onClick={(e) => submitAnswer(e)} disabled={!store.isGameStarted}>GO</button>
-                        <button onClick={(e) => { finishGame(e) }} disabled={!store.isGameStarted}>I GIVE UP</button>
+                        <button onClick={(e) => { finishGame(false, e) }} disabled={!store.isGameStarted}>I GIVE UP</button>
                     </div>
                     <div className="result-section">
                         {store.gameResopnses.map((res: string) => (<p>{res}</p>))}

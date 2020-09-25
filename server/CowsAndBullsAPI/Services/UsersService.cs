@@ -65,7 +65,7 @@ namespace CowsAndBullsAPI.Services
         public IEnumerable<IScoreboardResult> Scoreboard()
         {
             var result = new List<ScoreboardResult>();
-            var users = this._userRepository.All().Include(u => u.Games).OrderBy(u => u.Games.Count(g => g.HasWon)).Take(25);
+            var users = this._userRepository.All().Include(u => u.Games).OrderByDescending(u => u.Games.Count(g => g.HasWon)).ThenByDescending(u => u.Games.Max(g => g.Moves)).Take(25);
             foreach (var user in users)
             {
                 var attempts = 0;
@@ -73,7 +73,7 @@ namespace CowsAndBullsAPI.Services
                 foreach (var game in user.Games)
                 {
                     attempts += game.Moves;
-                    if (game.HasWon)
+                    if (game.HasWon == true)
                     {
                         wins++;
                     }

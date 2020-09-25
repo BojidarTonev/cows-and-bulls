@@ -2,8 +2,10 @@
 
 .main-page-wrapper {
   @include flex(center, center, "", row);
+  
   .game-rules {
     @include flex(center, center, left, column);
+    margin: 3em 0;
     h1 {
       color: white;
       background: rgba(169, 207, 64, 0.7);
@@ -25,7 +27,7 @@
     }
     button {
       float: right;
-      margin: 3em 0;
+      margin: 1em 0 0 0;
 
       background: rgba(169, 207, 64, 1);
     }

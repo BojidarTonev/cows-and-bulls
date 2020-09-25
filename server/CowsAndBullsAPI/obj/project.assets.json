@@ -4051,7 +4051,7 @@
       ]
     },
     "System.Diagnostics.TraceSource/4.3.0": {
-      "sha512": "VnYp1NxGx8Ww731y2LJ1vpfb/DKVNKEZ8Jsh5SgQTZREL/YpWRArgh9pI8CDLmgHspZmLL697CaLvH85qQpRiw==",
+      "sha512": "PXWAEqWXamctxvdYSlHY+HG0e++cVkg0FwiqtiOZ4Ziy31GD9uab2QAgkuDKUARcCdVq3DfruvdMnPfalEJbNw==",
       "type": "package",
       "path": "system.diagnostics.tracesource/4.3.0",
       "files": [
@@ -7382,24 +7382,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {}
+    "C:\\Users\\Bojidar\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\projects\\bulls-and-cows\\server\\CowsAndBullsAPI\\CowsAndBullsAPI.csproj",
+      "projectUniqueName": "D:\\github projects\\interview-task-softuni\\server\\CowsAndBullsAPI\\CowsAndBullsAPI.csproj",
       "projectName": "CowsAndBullsAPI",
-      "projectPath": "E:\\projects\\bulls-and-cows\\server\\CowsAndBullsAPI\\CowsAndBullsAPI.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "E:\\projects\\bulls-and-cows\\server\\CowsAndBullsAPI\\obj\\",
+      "projectPath": "D:\\github projects\\interview-task-softuni\\server\\CowsAndBullsAPI\\CowsAndBullsAPI.csproj",
+      "packagesPath": "C:\\Users\\Bojidar\\.nuget\\packages\\",
+      "outputPath": "D:\\github projects\\interview-task-softuni\\server\\CowsAndBullsAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Bojidar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

@@ -5,11 +5,11 @@
     overflow: auto;
     max-height: 30em;
   }
-  margin: 3em 0;
+  @include flex(center, center, center, column);
+  margin: 2em 0;
   background: rgba(0, 0, 0, 0.8);
   border-radius: 0.5em;
   padding: 1em 3em;
-  @include flex(center, center, center, column);
   h1 {
     margin-bottom: 0.7em;
   }
